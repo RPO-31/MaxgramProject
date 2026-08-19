@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="../Maxgram.Frontend/Maxgram.Frontend.csproj" Id="cd7b9b89-beea-4c97-b56c-5d8b07a7ce4c" />
+  <Project Path="Maxgram.API.csproj" />
+</Solution>
