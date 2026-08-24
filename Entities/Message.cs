@@ -1,4 +1,4 @@
-﻿namespace Maxgram.API.Models
+﻿namespace Maxgram.API.Entities
 {
     public class Message
     {
@@ -13,5 +13,7 @@
         public DateTime CreatedAt { get; set; }
 
         public string InfoAboutDelete { get; set; } = string.Empty;
+
+        public bool IsDeleted { get; set; }
     }
 }

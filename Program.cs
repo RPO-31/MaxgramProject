@@ -1,7 +1,11 @@
 using Maxgram.API;
+using Maxgram.API.Repositories;
+using Maxgram.API.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 // Add services to the container.
 

@@ -1,3 +1,5 @@
+using Maxgram.API.Services.Interfaces;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Maxgram.Controllers
@@ -6,31 +8,51 @@ namespace Maxgram.Controllers
     [Route("/api[controler]")]
     public class AuthController : ControllerBase
     {
-        public AuthController()
-        {
+        private readonly IAuthService _authService;
 
+        public AuthController(IAuthService authService)
+        {
+            _authService = authService;
         }
 
         [HttpPost("register")]
-        public IActionResult Register()
+        public async Task<IActionResult> RegisterAsync(string username, string name, string email, string password, string avPassword)
         {
-            return Ok();
+            var result = await _authService.RegisterAsync(username, name, email, password, avPassword);
+
+            if (result.IsSuccess)
+            {
+                return Ok();
+            }
+            else
+            {
+                return BadRequest(result.Errors);
+            }
         }
 
         [HttpPost("login")]
-        public IActionResult Login()
+        public async Task<IActionResult> LoginAsync(string username, string password)
         {
-            return Ok();
+            var result = await _authService.LoginAsync(username, password);
+
+            if (result.IsSuccess)
+            {
+                return Ok();
+            }
+            else
+            {
+                return BadRequest(result.Errors);
+            }
         }
 
         [HttpPost("logout")]
-        public IActionResult Logout()
+        public async Task<IActionResult> LogoutAsync()
         {
             return Ok();
         }
 
         [HttpGet("me")]
-        public IActionResult GetMe()
+        public async Task<IActionResult> GetMe()
         {
             return Ok();
         }

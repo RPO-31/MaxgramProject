@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Maxgram.API.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Maxgram.API
 {
@@ -8,6 +9,9 @@ namespace Maxgram.API
         {
         }
 
-        public DbSet<Product> Products { get; set; }
+        public DbSet<Chat> Chats { get; set; }
+        public DbSet<Chatter> Chatters { get; set; }
+        public DbSet<Message> Messages { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }

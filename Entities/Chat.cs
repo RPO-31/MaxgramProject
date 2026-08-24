@@ -1,4 +1,4 @@
-﻿namespace Maxgram.API.Models
+﻿namespace Maxgram.API.Entities
 {
     public enum ChatType
     {
