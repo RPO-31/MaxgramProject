@@ -1,9 +1,9 @@
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Maxgram.Backend.Services;
 using Maxgram.Backend.Dto;
 using Maxgram.Backend.Common;
+using Maxgram.Backend.Services.Interfaces;
 
 namespace Maxgram.Backend.Controllers;
 
@@ -12,10 +12,10 @@ namespace Maxgram.Backend.Controllers;
 [Authorize]
 public class ChatsController : ControllerBase
 {
-    private readonly ChatService _chatService;
-    private readonly MessageService _messageService;
+    private readonly IChatService _chatService;
+    private readonly IMessageService _messageService;
 
-    public ChatsController(ChatService chatService, MessageService messageService)
+    public ChatsController(IChatService chatService, IMessageService messageService)
     {
         _chatService = chatService;
         _messageService = messageService;

@@ -10,7 +10,11 @@ namespace Maxgram.Backend.Services;
 public class ChatService : IChatService
 {
     private readonly MaxgramDbContext _db;
-    public ChatService(MaxgramDbContext db) { _db = db; }
+
+    public ChatService(MaxgramDbContext db)
+    {
+        _db = db;
+    }
 
     public async Task<List<ConversationDto>> GetUserChatsAsync(int userId)
     {

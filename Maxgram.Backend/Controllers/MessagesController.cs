@@ -1,8 +1,8 @@
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Maxgram.Backend.Services;
 using Maxgram.Backend.Common;
+using Maxgram.Backend.Services.Interfaces;
 
 namespace Maxgram.Backend.Controllers;
 
@@ -11,8 +11,11 @@ namespace Maxgram.Backend.Controllers;
 [Authorize]
 public class MessagesController : ControllerBase
 {
-    private readonly MessageService _messageService;
-    public MessagesController(MessageService messageService) { _messageService = messageService; }
+    private readonly IMessageService _messageService;
+    public MessagesController(IMessageService messageService)
+    {
+        _messageService = messageService;
+    }
 
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id)

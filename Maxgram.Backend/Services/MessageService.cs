@@ -10,9 +10,9 @@ namespace Maxgram.Backend.Services;
 public class MessageService : IMessageService
 {
     private readonly MaxgramDbContext _db;
-    private readonly ChatService _chatService;
+    private readonly IChatService _chatService;
 
-    public MessageService(MaxgramDbContext db, ChatService chatService)
+    public MessageService(MaxgramDbContext db, IChatService chatService)
     {
         _db = db;
         _chatService = chatService;

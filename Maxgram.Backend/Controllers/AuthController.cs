@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Maxgram.Backend.Services;
 using Maxgram.Backend.Dto;
 using Maxgram.Backend.Common;
+using Maxgram.Backend.Services.Interfaces;
 
 namespace Maxgram.Backend.Controllers;
 
@@ -13,9 +13,9 @@ namespace Maxgram.Backend.Controllers;
 [Route("api/auth")]
 public class AuthController : ControllerBase
 {
-    private readonly AuthService _authService;
+    private readonly IAuthService _authService;
 
-    public AuthController(AuthService authService)
+    public AuthController(IAuthService authService)
     {
         _authService = authService;
     }

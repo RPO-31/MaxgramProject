@@ -1,7 +1,7 @@
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Maxgram.Backend.Services;
+using Maxgram.Backend.Services.Interfaces;
 
 namespace Maxgram.Backend.Controllers;
 
@@ -10,8 +10,8 @@ namespace Maxgram.Backend.Controllers;
 [Authorize]
 public class UsersController : ControllerBase
 {
-    private readonly UserService _userService;
-    public UsersController(UserService userService)
+    private readonly IUserService _userService;
+    public UsersController(IUserService userService)
     {
         _userService = userService;
     }
