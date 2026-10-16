@@ -13,8 +13,8 @@ builder.Services.AddAuthentication(Microsoft.AspNetCore.Authentication.Cookies.C
     .AddCookie(options =>
     {
         options.Cookie.HttpOnly = true;
-        options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
-        options.Cookie.SameSite = SameSiteMode.None;
+        options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
+        options.Cookie.SameSite = SameSiteMode.Lax;
         options.Events.OnRedirectToLogin = ctx =>
         {
             ctx.Response.StatusCode = 401;
